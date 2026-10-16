@@ -15,8 +15,8 @@ const D = {
   system: "ECHO — Recurrent Text Lab: a comparative autoregressive next-word text-generation system",
   dataset: "TinyStories (Eldan & Li, 2023)",
   datasetUrl: "https://huggingface.co/datasets/roneneldan/TinyStories",
-  repo: "https://github.com/RyanGupta16/echo-recurrent-text-lab",
-  demo: "https://ryangupta16.github.io/echo-recurrent-text-lab/",
+  repo: "https://github.com/RyanGupta16/ECHO",
+  demo: "https://ryangupta16.github.io/ECHO/",
 };
 const summary = process.argv[2] && fs.existsSync(process.argv[2]) ? JSON.parse(fs.readFileSync(process.argv[2], "utf8")) : null;
 
