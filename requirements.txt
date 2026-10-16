@@ -1,0 +1,15 @@
+# Versions used to produce the reported results (Python 3.12, macOS / Apple-silicon MPS).
+torch==2.14.1
+numpy==2.5.4
+pandas==3.0.6
+pyyaml==6.0.3
+datasets==5.1.0
+transformers==5.20.0
+sentence-transformers==6.1.0
+matplotlib==3.11.2
+onnx==1.23.2
+onnxruntime==1.31.0
+nbformat==5.11.1
+nbconvert==7.17.2
+ipykernel
+pytest
