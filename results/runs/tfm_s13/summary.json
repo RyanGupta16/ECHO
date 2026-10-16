@@ -1,0 +1,47 @@
+{
+  "run": "tfm_s13",
+  "kind": "tfm",
+  "seed": 13,
+  "params": {
+    "total": 3336128,
+    "recurrent_core": 1779456
+  },
+  "model_cfg": {
+    "embed_dim": 128,
+    "hidden_dim": 256,
+    "num_layers": 2,
+    "dropout": 0.25,
+    "transformer": {
+      "d_model": 192,
+      "layers": 4,
+      "heads": 6,
+      "ff": 768,
+      "dropout": 0.1
+    }
+  },
+  "epochs_run": 8,
+  "best_epoch": 8,
+  "train_time_s": 8421.340514417,
+  "time_per_epoch_s": 1052.667564302125,
+  "time_to_best_s": 8421.340514417,
+  "best_val": {
+    "epoch": 8,
+    "train_loss": 2.5467690203480933,
+    "train_perplexity": 12.765791067152383,
+    "val_loss": 2.53329389813265,
+    "val_perplexity": 12.594924283219717,
+    "val_top1_acc": 0.4574405886363301,
+    "val_top5_acc": 0.7218879083442915,
+    "epoch_time_s": 1075.5310645830032,
+    "lr": 8.005596983248715e-09,
+    "grad_norm_mean": 0.7500872755352455
+  },
+  "test": {
+    "loss": 2.541299758712611,
+    "perplexity": 12.696162198638115,
+    "top1_acc": 0.4575175080483621,
+    "top5_acc": 0.7214383954279636
+  },
+  "ms_per_token": 1.5080433349794475,
+  "device": "mps"
+}

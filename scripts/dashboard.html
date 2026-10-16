@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ECHO · Training Control Room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #05060a; --panel: #0d1019; --line: #1a1f2e; --line-2: #283047;
+    --ink: #f2f1ee; --ink-2: #b9bccb; --muted: #7f8499; --cyan: #5ee7ff; --violet: #9b7bff;
+    --rnn: #3987e5; --birnn: #d95926; --lstm: #199e70; --gru: #c98500; --tfm: #d55181; --good: #3ecf8e;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 Geist, system-ui, sans-serif; }
+  .wrap { max-width: 78rem; margin: 0 auto; padding: 1.5rem clamp(1rem, 3vw, 2rem) 3rem; }
+  .mono { font-family: "Geist Mono", ui-monospace, monospace; }
+  .eyebrow { font: 11px "Geist Mono", monospace; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+  h1 { font: 400 clamp(2.2rem, 5vw, 3.6rem)/1 "Instrument Serif", Georgia, serif; letter-spacing: -.02em; margin: .35rem 0 0; }
+  h1 em { color: var(--cyan); }
+  header { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; flex-wrap: wrap; }
+  .live { display: inline-flex; align-items: center; gap: .5rem; padding: .45rem .9rem; border: 1px solid var(--line-2); border-radius: 99px; font-size: 13px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 0 rgb(62 207 142 / .6); animation: pulse 1.8s infinite; }
+  .dot.off { background: #e66767; animation: none; }
+  @keyframes pulse { 70% { box-shadow: 0 0 0 9px rgb(62 207 142 / 0); } 100% { box-shadow: 0 0 0 0 rgb(62 207 142 / 0); } }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 1.2rem 1.3rem; }
+  .grid { display: grid; gap: .9rem; }
+  .kpis { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); margin-top: 1.6rem; }
+  .kpi .v { font: 400 2.6rem/1.05 "Instrument Serif", serif; margin-top: .5rem; font-variant-numeric: tabular-nums; }
+  .kpi .s { color: var(--ink-2); font-size: 13px; margin-top: .25rem; }
+  .bar { height: 6px; border-radius: 6px; background: rgb(255 255 255 / .06); overflow: hidden; margin-top: .8rem; }
+  .bar > i { display: block; height: 100%; border-radius: 6px; background: linear-gradient(90deg, var(--cyan), var(--violet)); transition: width .8s ease; }
+  .queue { margin-top: .9rem; }
+  .groups { display: flex; flex-wrap: wrap; gap: 1.4rem 2rem; margin-top: .9rem; }
+  .group h3 { margin: 0 0 .5rem; font: 12px Geist, sans-serif; color: var(--muted); font-weight: 400; }
+  .pills { display: flex; gap: .4rem; flex-wrap: wrap; }
+  .pill { display: inline-flex; align-items: center; gap: .4rem; height: 32px; padding: 0 .75rem; border-radius: 99px; border: 1px solid var(--line-2); font: 12px "Geist Mono", monospace; color: var(--muted); }
+  .pill i { width: 8px; height: 8px; border-radius: 50%; }
+  .pill.done { color: var(--ink); background: rgb(255 255 255 / .05); border-color: transparent; }
+  .pill.done::after { content: "✓"; color: var(--good); }
+  .pill.running { color: var(--ink); border-color: var(--cyan); box-shadow: 0 0 18px rgb(94 231 255 / .25); }
+  .pill.running::after { content: "●"; color: var(--cyan); animation: blink 1s steps(2) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .two { grid-template-columns: 1.6fr 1fr; margin-top: .9rem; }
+  @media (max-width: 960px) { .two { grid-template-columns: 1fr; } }
+  .chart-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 99px; padding: 3px; }
+  .seg button { background: none; border: 0; color: var(--muted); font: 12px Geist, sans-serif; height: 32px; padding: 0 .9rem; border-radius: 99px; cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: rgb(255 255 255 / .08); color: var(--ink); }
+  .legend { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; margin: .8rem 0 .2rem; font-size: 12px; color: var(--ink-2); }
+  .legend span { display: inline-flex; align-items: center; gap: .45rem; }
+  .legend b { width: 16px; height: 2px; border-radius: 2px; }
+  svg text { font: 11px Geist, sans-serif; fill: var(--muted); }
+  .tip { position: absolute; pointer-events: none; background: #0d1019; border: 1px solid var(--line-2); border-radius: 10px; padding: .5rem .7rem; font-size: 12px; box-shadow: 0 10px 30px rgb(0 0 0 / .5); white-space: nowrap; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+  th { text-align: right; font-weight: 400; color: var(--muted); padding: .55rem .4rem; border-bottom: 1px solid var(--line); }
+  th:first-child, td:first-child { text-align: left; }
+  td { text-align: right; padding: .55rem .4rem; border-bottom: 1px solid rgb(26 31 46 / .6); color: var(--ink-2); }
+  td:first-child { color: var(--ink); }
+  .best { color: var(--cyan); }
+  .log { margin: .8rem 0 0; font: 12px/1.7 "Geist Mono", monospace; color: var(--ink-2); white-space: pre-wrap; max-height: 20rem; overflow: auto; }
+  .hint { color: var(--muted); font-size: 12.5px; margin: .3rem 0 0; }
+  .empty { color: var(--muted); padding: 2rem 0; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <p class="eyebrow">ECHO · Recurrent Text Lab</p>
+      <h1>Training <em>control room</em></h1>
+    </div>
+    <div class="live mono"><span class="dot" id="dot"></span><span id="liveText">connecting…</span></div>
+  </header>
+
+  <section class="grid kpis" aria-label="Summary">
+    <div class="panel kpi"><p class="eyebrow">Runs complete</p><div class="v" id="kDone">–</div><p class="s" id="kDoneS">of the full experiment</p><div class="bar"><i id="kDoneBar" style="width:0"></i></div></div>
+    <div class="panel kpi"><p class="eyebrow">Training now</p><div class="v" id="kNow">–</div><p class="s" id="kNowS">&nbsp;</p><div class="bar"><i id="kNowBar" style="width:0"></i></div></div>
+    <div class="panel kpi"><p class="eyebrow">Estimated finish</p><div class="v" id="kEta">–</div><p class="s" id="kEtaS">&nbsp;</p></div>
+    <div class="panel kpi"><p class="eyebrow">Best test perplexity</p><div class="v" id="kBest">–</div><p class="s" id="kBestS">lower = smarter</p></div>
+  </section>
+
+  <section class="panel queue" aria-label="Run queue">
+    <p class="eyebrow">The queue</p>
+    <p class="hint">Each pill is one full training run. Every model is trained 3× with different random seeds, then once more with an equal parameter budget, then the bonus Transformer.</p>
+    <div class="groups" id="groups"></div>
+  </section>
+
+  <section class="grid two">
+    <div class="panel" style="position:relative">
+      <div class="chart-head">
+        <div><p class="eyebrow">Learning curves</p><p class="hint">Each line is one run. Lower = the model is less confused about the next word.</p></div>
+        <div class="seg" role="group" aria-label="Metric">
+          <button data-m="ppl" aria-pressed="true">Validation perplexity</button>
+          <button data-m="top1" aria-pressed="false">Top-1 accuracy</button>
+        </div>
+      </div>
+      <div class="legend" id="legend"></div>
+      <svg id="chart" viewBox="0 0 760 360" role="img" aria-label="Learning curves for all runs" style="width:100%"></svg>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+    <div class="grid" style="gap:.9rem">
+      <div class="panel">
+        <p class="eyebrow">Finished runs · final exam</p>
+        <p class="hint">Scored on 2,500 stories none of the models ever saw.</p>
+        <div id="board"></div>
+      </div>
+      <div class="panel">
+        <p class="eyebrow">Live log</p>
+        <pre class="log" id="log"></pre>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+const COLORS = { rnn: "var(--rnn)", birnn: "var(--birnn)", lstm: "var(--lstm)", gru: "var(--gru)", tfm: "var(--tfm)" };
+const NAMES = { rnn: "Simple RNN", birnn: "Bidirectional RNN", lstm: "LSTM", gru: "GRU", tfm: "Transformer" };
+const kindOf = (n) => (n.startsWith("matched_") ? n.split("_")[1] : n.split("_")[0]);
+const label = (n) => {
+  const k = kindOf(n), seed = n.split("_s").pop();
+  return `${NAMES[k]}${n.startsWith("matched_") ? " · fair fight" : ""} · seed ${seed}`;
+};
+let metric = "ppl", data = null;
+
+document.querySelectorAll(".seg button").forEach((b) =>
+  b.addEventListener("click", () => {
+    metric = b.dataset.m;
+    document.querySelectorAll(".seg button").forEach((x) => x.setAttribute("aria-pressed", x === b));
+    draw();
+  }));
+
+const fmtDur = (s) => { const h = Math.floor(s / 3600), m = Math.round((s % 3600) / 60); return h ? `${h}h ${m}m` : `${m}m`; };
+
+function render() {
+  const d = data;
+  document.getElementById("dot").className = "dot" + (d.alive ? "" : " off");
+  document.getElementById("liveText").textContent = d.alive ? "training live · updates every 5s" : "training not running";
+  const done = d.queue.filter((q) => q.state === "done").length;
+  document.getElementById("kDone").textContent = `${done} / ${d.queue.length}`;
+  document.getElementById("kDoneBar").style.width = `${(done / d.queue.length) * 100}%`;
+
+  const c = d.current;
+  if (c) {
+    document.getElementById("kNow").textContent = NAMES[c.kind];
+    document.getElementById("kNowS").textContent = `${label(c.name).split(" · ").slice(1).join(" · ")} · round ${c.epoch} of ${c.max} · ~${Math.round(c.frac * 100)}% through this round`;
+    document.getElementById("kNowBar").style.width = `${((c.epoch - 1 + c.frac) / c.max) * 100}%`;
+  } else {
+    document.getElementById("kNow").textContent = d.alive ? "starting…" : "idle";
+    document.getElementById("kNowS").textContent = done === d.queue.length ? "all runs finished" : " ";
+  }
+  if (d.alive && d.eta_s > 0) {
+    const t = new Date(Date.now() + d.eta_s * 1000);
+    document.getElementById("kEta").textContent = t.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+    document.getElementById("kEtaS").textContent = `about ${fmtDur(d.eta_s)} from now (early stopping may finish sooner)`;
+  } else {
+    document.getElementById("kEta").textContent = done === d.queue.length ? "done" : "–";
+    document.getElementById("kEtaS").textContent = " ";
+  }
+
+  const finished = Object.entries(d.runs).filter(([, r]) => r.test);
+  if (finished.length) {
+    const [bn, br] = finished.reduce((a, b) => (b[1].test.ppl < a[1].test.ppl ? b : a));
+    document.getElementById("kBest").textContent = br.test.ppl.toFixed(2);
+    document.getElementById("kBestS").textContent = `${label(bn)} · lower = smarter`;
+  }
+
+  // queue
+  const groups = [
+    ["Seed 13", (q) => q.group === "main" && q.name.endsWith("_s13")],
+    ["Seed 42", (q) => q.group === "main" && q.name.endsWith("_s42")],
+    ["Seed 2026", (q) => q.group === "main" && q.name.endsWith("_s2026")],
+    ["Fair fight (equal parameters)", (q) => q.group === "matched"],
+    ["Bonus", (q) => q.group === "bonus"],
+  ];
+  document.getElementById("groups").innerHTML = groups.map(([t, f]) =>
+    `<div class="group"><h3>${t}</h3><div class="pills">${d.queue.filter(f).map((q) =>
+      `<span class="pill ${q.state}" title="${label(q.name)} — ${q.state}"><i style="background:${COLORS[q.kind]}"></i>${NAMES[q.kind].replace("Bidirectional RNN", "BiRNN").replace("Simple RNN", "RNN")}</span>`).join("")}</div></div>`).join("");
+
+  // leaderboard
+  const rows = finished.sort((a, b) => a[1].test.ppl - b[1].test.ppl);
+  document.getElementById("board").innerHTML = rows.length ? `<table><thead><tr><th>Run</th><th>Perplexity</th><th>Top-1</th><th>Top-5</th><th>Minutes</th></tr></thead><tbody>${rows.map(([n, r], i) =>
+    `<tr><td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${COLORS[kindOf(n)]};margin-right:.5rem"></span>${label(n)}</td><td class="${i === 0 ? "best" : ""}">${r.test.ppl.toFixed(2)}</td><td>${(r.test.top1 * 100).toFixed(1)}%</td><td>${(r.test.top5 * 100).toFixed(1)}%</td><td>${r.test.min.toFixed(0)}</td></tr>`).join("")}</tbody></table>` : `<p class="empty">The first run is still training.</p>`;
+
+  document.getElementById("log").textContent = d.log_tail.join("\n");
+  draw();
+}
+
+function draw() {
+  if (!data) return;
+  const svg = document.getElementById("chart");
+  const W = 760, H = 360, P = { l: 48, r: 16, t: 14, b: 48 };
+  const runs = Object.entries(data.runs).filter(([, r]) => r.epochs.length);
+  if (!runs.length) { svg.innerHTML = `<text x="${W / 2}" y="${H / 2}" text-anchor="middle">Waiting for the first round to finish…</text>`; return; }
+  const val = (e) => (metric === "ppl" ? e.ppl : e.top1 * 100);
+  const all = runs.flatMap(([, r]) => r.epochs.map(val));
+  const log = metric === "ppl";
+  let lo = Math.min(...all), hi = Math.max(...all);
+  if (log) { lo *= 0.95; hi *= 1.05; } else { const p = (hi - lo) * 0.1 || 1; lo -= p; hi += p; }
+  const f = (v) => (log ? Math.log(v) : v);
+  const X = (ep) => P.l + ((ep - 1) / (data.max_epochs - 1)) * (W - P.l - P.r);
+  const Y = (v) => P.t + (1 - (f(v) - f(lo)) / (f(hi) - f(lo))) * (H - P.t - P.b);
+  const ticks = log ? [10, 15, 20, 25, 30, 40, 50, 70, 100, 150].filter((t) => t >= lo && t <= hi) : Array.from({ length: 5 }, (_, i) => lo + ((hi - lo) * (i + 0.5)) / 5);
+  let s = "";
+  for (const t of ticks) s += `<line x1="${P.l}" x2="${W - P.r}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--line)"/><text x="${P.l - 8}" y="${Y(t) + 4}" text-anchor="end">${log ? t : t.toFixed(1) + "%"}</text>`;
+  for (let e = 1; e <= data.max_epochs; e++) s += `<text x="${X(e)}" y="${H - 28}" text-anchor="middle">${e}</text>`;
+  s += `<text x="${(P.l + W - P.r) / 2}" y="${H - 4}" text-anchor="middle" style="fill:var(--ink-2)">training round (epoch)</text>`;
+  const pts = [];
+  for (const [n, r] of runs) {
+    const k = kindOf(n);
+    const dash = n.startsWith("matched_") ? "6 5" : n.endsWith("_s42") ? "1 0" : n.endsWith("_s2026") ? "1 0" : "1 0";
+    const op = n.endsWith("_s13") || n.startsWith("tfm") ? 1 : 0.6;
+    const live = data.current && data.current.name === n;
+    s += `<path d="M${r.epochs.map((e) => `${X(e.ep)},${Y(val(e))}`).join("L")}" fill="none" stroke="${COLORS[k]}" stroke-width="${live ? 2.6 : 2}" stroke-dasharray="${dash}" stroke-opacity="${op}" stroke-linejoin="round" stroke-linecap="round"/>`;
+    for (const e of r.epochs) { pts.push({ n, e, x: X(e.ep), y: Y(val(e)) }); }
+    const last = r.epochs[r.epochs.length - 1];
+    s += `<circle cx="${X(last.ep)}" cy="${Y(val(last))}" r="${live ? 5 : 4}" fill="${COLORS[k]}" stroke="var(--panel)" stroke-width="2"/>`;
+  }
+  svg.innerHTML = s;
+  const kinds = [...new Set(runs.map(([n]) => kindOf(n)))];
+  document.getElementById("legend").innerHTML = kinds.map((k) => `<span><b style="background:${COLORS[k]}"></b>${NAMES[k]}</span>`).join("") +
+    (runs.some(([n]) => n.startsWith("matched_")) ? `<span><b style="background:repeating-linear-gradient(90deg,var(--ink-2) 0 4px,transparent 4px 7px)"></b>fair fight</span>` : "");
+
+  const tip = document.getElementById("tip");
+  svg.onpointermove = (ev) => {
+    const r = svg.getBoundingClientRect(), px = ((ev.clientX - r.left) / r.width) * W, py = ((ev.clientY - r.top) / r.height) * H;
+    let best = null, bd = 900;
+    for (const p of pts) { const dd = (p.x - px) ** 2 + (p.y - py) ** 2; if (dd < bd) { bd = dd; best = p; } }
+    if (!best) { tip.hidden = true; return; }
+    tip.hidden = false;
+    tip.innerHTML = `<b style="color:var(--ink)">${label(best.n)}</b><br>round ${best.e.ep} · perplexity ${best.e.ppl.toFixed(1)} · top-1 ${(best.e.top1 * 100).toFixed(1)}% · ${best.e.sec}s`;
+    tip.style.left = `${(best.x / W) * r.width + 30}px`;
+    tip.style.top = `${(best.y / H) * r.height + 60}px`;
+  };
+  svg.onpointerleave = () => (tip.hidden = true);
+}
+
+async function poll() {
+  try { data = await (await fetch("/api/status", { cache: "no-store" })).json(); render(); }
+  catch { document.getElementById("liveText").textContent = "dashboard server offline"; document.getElementById("dot").className = "dot off"; }
+}
+poll();
+setInterval(poll, 5000);
+</script>
+</body>
+</html>

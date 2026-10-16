@@ -1,0 +1,40 @@
+{
+  "run": "birnn_s13",
+  "kind": "birnn",
+  "seed": 13,
+  "params": {
+    "total": 5719872,
+    "recurrent_core": 591872
+  },
+  "model_cfg": {
+    "embed_dim": 128,
+    "hidden_dim": 256,
+    "num_layers": 2,
+    "dropout": 0.25
+  },
+  "epochs_run": 8,
+  "best_epoch": 8,
+  "train_time_s": 2013.4097968320712,
+  "time_per_epoch_s": 251.6762246040089,
+  "time_to_best_s": 2013.4097968320712,
+  "best_val": {
+    "epoch": 8,
+    "train_loss": 3.265828960839519,
+    "train_perplexity": 26.201822275267613,
+    "val_loss": 3.160515426164007,
+    "val_perplexity": 23.58274796238013,
+    "val_top1_acc": 0.3739955632760837,
+    "val_top5_acc": 0.6244868323015452,
+    "epoch_time_s": 241.4327818750171,
+    "lr": 8.005596983248715e-09,
+    "grad_norm_mean": 1.33947883678388
+  },
+  "test": {
+    "loss": 3.1659845266560445,
+    "perplexity": 23.712077717211994,
+    "top1_acc": 0.37490436780306413,
+    "top5_acc": 0.6244700722990307
+  },
+  "ms_per_token": 4.954986664815806,
+  "device": "mps"
+}

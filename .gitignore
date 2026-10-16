@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+data/raw/
+data/processed/*.pt
+results/runs/*/checkpoint*.pt
+web/node_modules/
+web/.next/
+web/out/
+.env*
+docs/submission/node_modules/
+docs/submission/package*.json
+~$*
+results/interrupted_backup_*/
+*.ipynb_checkpoints

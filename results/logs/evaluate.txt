@@ -1,0 +1,42 @@
+generated rnn
+generated birnn
+generated lstm
+generated gru
+generated tfm
+W1016 18:50:25.220000 7366 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 13163.90it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 8201.18it/s]
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+    kind              model  test_loss_mean  test_loss_std  test_ppl_mean  test_ppl_std  test_top1_mean  test_top1_std  test_top5_mean  test_top5_std  train_time_min_mean  train_time_min_std  time_per_epoch_s_mean  time_per_epoch_s_std  time_to_best_min_mean  time_to_best_min_std  ms_per_token_mean  ms_per_token_std  best_epoch_mean  best_epoch_std  params_total  params_core
+0    rnn         Simple RNN        3.169801       0.004526      23.802905      0.107774        0.365878       0.000321        0.620862       0.000949            15.852968            0.553937             118.897258              4.154530              15.852968              0.553937           2.797893          0.498359              8.0             0.0       3310400       230400
+1  birnn  Bidirectional RNN        3.172468       0.006730      23.866683      0.160686        0.373621       0.001276        0.623622       0.001082            34.876619            1.154230             261.574642              8.656722              34.876619              1.154230           5.640925          1.285037              8.0             0.0       5719872       591872
+2   lstm               LSTM        2.841914       0.002601      17.148593      0.044609        0.414528       0.000867        0.670262       0.000468            38.101074            2.756605             285.758054             20.674537              38.101074              2.756605           0.558664          0.037166              8.0             0.0       4001600       921600
+3    gru                GRU        2.770786       0.003661      15.971249      0.058410        0.424151       0.000355        0.683099       0.000469            33.977899            1.906305             254.834240             14.297289              33.977899              1.906305           3.310054          0.063158              8.0             0.0       3771200       691200
+     kind                model  temperature  gpt2_ppl  consistency  distinct_1  distinct_2  distinct_3  self_bleu  repetition  length
+0     rnn           Simple RNN          0.0     8.794        0.304       0.056       0.092       0.113      1.000       0.209   37.00
+1     rnn           Simple RNN          0.5    18.670        0.302       0.172       0.446       0.660      0.296       0.055   48.32
+2     rnn           Simple RNN          0.8    35.282        0.300       0.260       0.656       0.885      0.137       0.008   53.88
+3     rnn           Simple RNN          1.0   105.442        0.305       0.331       0.776       0.953      0.094       0.009   57.60
+4     rnn           Simple RNN          1.3   457.866        0.278       0.422       0.907       0.992      0.045       0.003   54.76
+5   birnn    Bidirectional RNN          0.0     6.576        0.355       0.047       0.092       0.119      1.000       0.262   60.00
+6   birnn    Bidirectional RNN          0.5    15.065        0.374       0.165       0.419       0.633      0.306       0.059   56.00
+7   birnn    Bidirectional RNN          0.8    35.234        0.347       0.266       0.652       0.865      0.158       0.004   53.68
+8   birnn    Bidirectional RNN          1.0    74.929        0.349       0.306       0.757       0.940      0.108       0.002   54.28
+9   birnn    Bidirectional RNN          1.3   329.242        0.317       0.399       0.890       0.988      0.055       0.000   57.56
+10   lstm                 LSTM          0.0     9.558        0.343       0.050       0.099       0.130      1.000       0.120   54.80
+11   lstm                 LSTM          0.5    13.527        0.401       0.158       0.441       0.680      0.301       0.066   59.08
+12   lstm                 LSTM          0.8    26.484        0.332       0.229       0.639       0.865      0.167       0.014   58.20
+13   lstm                 LSTM          1.0    61.148        0.336       0.313       0.777       0.947      0.091       0.008   56.60
+14   lstm                 LSTM          1.3   219.988        0.344       0.399       0.873       0.986      0.063       0.002   59.40
+15    gru                  GRU          0.0     8.085        0.441       0.052       0.104       0.131      1.000       0.276   60.00
+16    gru                  GRU          0.5    10.526        0.397       0.180       0.478       0.696      0.274       0.077   56.56
+17    gru                  GRU          0.8    23.160        0.393       0.248       0.636       0.864      0.155       0.017   55.92
+18    gru                  GRU          1.0    55.514        0.390       0.309       0.760       0.940      0.099       0.006   55.76
+19    gru                  GRU          1.3   259.203        0.343       0.426       0.891       0.988      0.055       0.000   54.16
+20    tfm          Transformer          0.0     7.777        0.538       0.061       0.123       0.150      1.000       0.200   60.00
+21    tfm          Transformer          0.5    11.096        0.479       0.161       0.458       0.677      0.356       0.074   58.88
+22    tfm          Transformer          0.8    19.849        0.473       0.225       0.613       0.851      0.212       0.016   57.16
+23    tfm          Transformer          1.0    38.634        0.428       0.284       0.722       0.935      0.115       0.010   55.56
+24    tfm          Transformer          1.3   232.450        0.379       0.436       0.880       0.979      0.061       0.003   57.84
+25  human  Human (TinyStories)          NaN    12.638        0.532       0.280       0.724       0.926        NaN       0.010   60.00

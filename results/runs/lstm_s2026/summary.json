@@ -1,0 +1,47 @@
+{
+  "run": "lstm_s2026",
+  "kind": "lstm",
+  "seed": 2026,
+  "params": {
+    "total": 4001600,
+    "recurrent_core": 921600
+  },
+  "model_cfg": {
+    "embed_dim": 128,
+    "hidden_dim": 256,
+    "num_layers": 2,
+    "dropout": 0.25,
+    "transformer": {
+      "d_model": 192,
+      "layers": 4,
+      "heads": 6,
+      "ff": 768,
+      "dropout": 0.1
+    }
+  },
+  "epochs_run": 8,
+  "best_epoch": 8,
+  "train_time_s": 2254.1155154170065,
+  "time_per_epoch_s": 281.7644394271258,
+  "time_to_best_s": 2254.1155154170065,
+  "best_val": {
+    "epoch": 8,
+    "train_loss": 2.901720869593038,
+    "train_perplexity": 18.205447629417627,
+    "val_loss": 2.8335384245197597,
+    "val_perplexity": 17.0055272662347,
+    "val_top1_acc": 0.4145993967575189,
+    "val_top5_acc": 0.6715747837044322,
+    "epoch_time_s": 275.0486770410007,
+    "lr": 8.005596983248715e-09,
+    "grad_norm_mean": 0.32473496357096904
+  },
+  "test": {
+    "loss": 2.8445935931332267,
+    "perplexity": 17.194569257731736,
+    "top1_acc": 0.4135953564710575,
+    "top5_acc": 0.6697283500694219
+  },
+  "ms_per_token": 0.5649506250028935,
+  "device": "mps"
+}

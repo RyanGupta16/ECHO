@@ -1,0 +1,47 @@
+{
+  "run": "matched_rnn_s13",
+  "kind": "rnn",
+  "seed": 13,
+  "params": {
+    "total": 3981696,
+    "recurrent_core": 357696
+  },
+  "model_cfg": {
+    "embed_dim": 128,
+    "hidden_dim": 324,
+    "num_layers": 2,
+    "dropout": 0.25,
+    "transformer": {
+      "d_model": 192,
+      "layers": 4,
+      "heads": 6,
+      "ff": 768,
+      "dropout": 0.1
+    }
+  },
+  "epochs_run": 8,
+  "best_epoch": 8,
+  "train_time_s": 1249.271123706003,
+  "time_per_epoch_s": 156.15889046325037,
+  "time_to_best_s": 1249.271123706003,
+  "best_val": {
+    "epoch": 8,
+    "train_loss": 3.2562625475908624,
+    "train_perplexity": 25.952359947856955,
+    "val_loss": 3.1495236115185965,
+    "val_perplexity": 23.324950196167705,
+    "val_top1_acc": 0.37365784880100805,
+    "val_top5_acc": 0.625139043381535,
+    "epoch_time_s": 157.11916304100305,
+    "lr": 8.005596983248715e-09,
+    "grad_norm_mean": 2.2987227107905133
+  },
+  "test": {
+    "loss": 3.1575375608395144,
+    "perplexity": 23.512626173406783,
+    "top1_acc": 0.3737992846384722,
+    "top5_acc": 0.6244787909038796
+  },
+  "ms_per_token": 2.634633545003453,
+  "device": "mps"
+}

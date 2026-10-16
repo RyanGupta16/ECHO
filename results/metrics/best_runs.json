@@ -1,0 +1,7 @@
+{
+  "birnn": "birnn_s13",
+  "gru": "gru_s2026",
+  "lstm": "lstm_s42",
+  "rnn": "rnn_s2026",
+  "tfm": "tfm_s13"
+}

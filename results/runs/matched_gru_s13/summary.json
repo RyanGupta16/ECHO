@@ -1,0 +1,47 @@
+{
+  "run": "matched_gru_s13",
+  "kind": "gru",
+  "seed": 13,
+  "params": {
+    "total": 3981568,
+    "recurrent_core": 773568
+  },
+  "model_cfg": {
+    "embed_dim": 128,
+    "hidden_dim": 272,
+    "num_layers": 2,
+    "dropout": 0.25,
+    "transformer": {
+      "d_model": 192,
+      "layers": 4,
+      "heads": 6,
+      "ff": 768,
+      "dropout": 0.1
+    }
+  },
+  "epochs_run": 8,
+  "best_epoch": 8,
+  "train_time_s": 3430.538796541012,
+  "time_per_epoch_s": 428.8173495676265,
+  "time_to_best_s": 3430.538796541012,
+  "best_val": {
+    "epoch": 8,
+    "train_loss": 2.843440559412593,
+    "train_perplexity": 17.17475476515011,
+    "val_loss": 2.7531512981955495,
+    "val_perplexity": 15.692004234459207,
+    "val_top1_acc": 0.42646583912548836,
+    "val_top5_acc": 0.685444295052694,
+    "epoch_time_s": 428.62014575000285,
+    "lr": 8.005596983248715e-09,
+    "grad_norm_mean": 0.7168679448622691
+  },
+  "test": {
+    "loss": 2.7638887375242214,
+    "perplexity": 15.86140401023736,
+    "top1_acc": 0.4253436765048857,
+    "top5_acc": 0.6845804934294414
+  },
+  "ms_per_token": 5.691889584995806,
+  "device": "mps"
+}

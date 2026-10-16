@@ -1,0 +1,2 @@
+run,model,kind,seed,hidden_dim,params_total,params_core,epochs_run,best_epoch,val_loss,val_ppl,test_loss,test_ppl,test_top1,test_top5,train_time_min,time_per_epoch_s,time_to_best_min,ms_per_token
+tfm_s13,Transformer,tfm,13,256,3336128,1779456,8,8,2.53329389813265,12.594924283219717,2.541299758712611,12.696162198638115,0.4575175080483621,0.7214383954279636,140.35567524028332,1052.667564302125,140.35567524028332,1.5080433349794475

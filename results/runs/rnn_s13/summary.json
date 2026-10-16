@@ -1,0 +1,40 @@
+{
+  "run": "rnn_s13",
+  "kind": "rnn",
+  "seed": 13,
+  "params": {
+    "total": 3310400,
+    "recurrent_core": 230400
+  },
+  "model_cfg": {
+    "embed_dim": 128,
+    "hidden_dim": 256,
+    "num_layers": 2,
+    "dropout": 0.25
+  },
+  "epochs_run": 8,
+  "best_epoch": 8,
+  "train_time_s": 936.2095378760714,
+  "time_per_epoch_s": 117.02619223450893,
+  "time_to_best_s": 936.2095378760714,
+  "best_val": {
+    "epoch": 8,
+    "train_loss": 3.2771550362330433,
+    "train_perplexity": 26.50027303728955,
+    "val_loss": 3.165600139729364,
+    "val_perplexity": 23.702964856077614,
+    "val_top1_acc": 0.36573422292954644,
+    "val_top5_acc": 0.6215845985313642,
+    "epoch_time_s": 125.87801637500525,
+    "lr": 8.005596983248715e-09,
+    "grad_norm_mean": 1.1517093128795866
+  },
+  "test": {
+    "loss": 3.174608589133567,
+    "perplexity": 23.917456483664267,
+    "top1_acc": 0.36551007107842604,
+    "top5_acc": 0.6199102419630811
+  },
+  "ms_per_token": 3.3728877099929377,
+  "device": "mps"
+}

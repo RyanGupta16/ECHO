@@ -1,0 +1,6 @@
+{'kind': 'rnn', 'model': 'Simple RNN', 'total': 3310400, 'recurrent_core': 230400, 'train_ms_per_batch': 20.84010082995519, 'infer_ms_per_word': 2.382600276663046, 'est_min_per_epoch': 1.3567773977835411, 'device': 'mps'}
+{'kind': 'birnn', 'model': 'Bidirectional RNN', 'total': 5719872, 'recurrent_core': 591872, 'train_ms_per_batch': 44.801468329969794, 'infer_ms_per_word': 4.848896943343182, 'est_min_per_epoch': 2.9167622610657418, 'device': 'mps'}
+{'kind': 'lstm', 'model': 'LSTM', 'total': 4001600, 'recurrent_core': 921600, 'train_ms_per_batch': 47.6760812500288, 'infer_ms_per_word': 0.4098054166630997, 'est_min_per_epoch': 3.103911539715417, 'device': 'mps'}
+{'kind': 'gru', 'model': 'GRU', 'total': 3771200, 'recurrent_core': 691200, 'train_ms_per_batch': 47.52141416000086, 'infer_ms_per_word': 3.182136110020413, 'est_min_per_epoch': 3.0938420677083895, 'device': 'mps'}
+{'kind': 'tfm', 'model': 'Transformer', 'total': 3336128, 'recurrent_core': 1779456, 'train_ms_per_batch': 118.66145708001568, 'infer_ms_per_word': 0.8238436133494058, 'est_min_per_epoch': 7.725355278646854, 'device': 'mps'}
+wrote /Users/ryangupta/Desktop/GENAI/ECHO/results/metrics/speed_benchmark.csv

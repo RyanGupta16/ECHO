@@ -1,0 +1,191 @@
+[rnn_s13] params=3,310,400 (core 230,400) device=mps
+[rnn_s13] ep  1  train 4.238  val 3.578  ppl 35.8  top1 0.322  107s
+[rnn_s13] ep  2  train 3.671  val 3.463  ppl 31.9  top1 0.337  111s
+[rnn_s13] ep  3  train 3.587  val 3.384  ppl 29.5  top1 0.343  116s
+[rnn_s13] ep  4  train 3.514  val 3.317  ppl 27.6  top1 0.349  121s
+[rnn_s13] ep  5  train 3.430  val 3.256  ppl 25.9  top1 0.356  118s
+[rnn_s13] ep  6  train 3.356  val 3.204  ppl 24.6  top1 0.362  116s
+[rnn_s13] ep  7  train 3.300  val 3.173  ppl 23.9  top1 0.365  121s
+[rnn_s13] ep  8  train 3.277  val 3.166  ppl 23.7  top1 0.366  126s
+[rnn_s13] TEST loss 3.175 ppl 23.9 top1 0.366 top5 0.620  train 15.6 min
+{"run": "rnn_s13", "test": {"loss": 3.174608589133567, "perplexity": 23.917456483664267, "top1_acc": 0.36551007107842604, "top5_acc": 0.6199102419630811}}
+[birnn_s13] params=5,719,872 (core 591,872) device=mps
+[birnn_s13] ep  1  train 4.250  val 3.702  ppl 40.5  top1 0.323  247s
+[birnn_s13] ep  2  train 3.832  val 3.607  ppl 36.8  top1 0.335  254s
+[birnn_s13] ep  3  train 3.737  val 3.505  ppl 33.3  top1 0.341  256s
+[birnn_s13] ep  4  train 3.630  val 3.403  ppl 30.1  top1 0.352  264s
+[birnn_s13] ep  5  train 3.506  val 3.302  ppl 27.2  top1 0.361  254s
+[birnn_s13] ep  6  train 3.393  val 3.218  ppl 25.0  top1 0.370  246s
+[birnn_s13] ep  7  train 3.303  val 3.171  ppl 23.8  top1 0.373  251s
+[birnn_s13] ep  8  train 3.266  val 3.161  ppl 23.6  top1 0.374  241s
+[birnn_s13] TEST loss 3.166 ppl 23.7 top1 0.375 top5 0.624  train 33.6 min
+{"run": "birnn_s13", "test": {"loss": 3.1659845266560445, "perplexity": 23.712077717211994, "top1_acc": 0.37490436780306413, "top5_acc": 0.6244700722990307}}
+[lstm_s13] params=4,001,600 (core 921,600) device=mps
+[lstm_s13] ep  1  train 4.259  val 3.392  ppl 29.7  top1 0.351  276s
+[lstm_s13] ep  2  train 3.333  val 3.123  ppl 22.7  top1 0.381  266s
+[lstm_s13] ep  3  train 3.159  val 3.002  ppl 20.1  top1 0.394  266s
+[lstm_s13] ep  4  train 3.063  val 2.931  ppl 18.7  top1 0.402  265s
+[lstm_s13] ep  5  train 2.992  val 2.880  ppl 17.8  top1 0.409  274s
+[lstm_s13] ep  6  train 2.946  val 2.848  ppl 17.3  top1 0.413  276s
+[lstm_s13] ep  7  train 2.913  val 2.834  ppl 17.0  top1 0.415  258s
+[lstm_s13] ep  8  train 2.902  val 2.830  ppl 16.9  top1 0.416  257s
+[lstm_s13] TEST loss 2.842 ppl 17.1 top1 0.415 top5 0.670  train 35.6 min
+{"run": "lstm_s13", "test": {"loss": 2.841748603388486, "perplexity": 17.145720404719594, "top1_acc": 0.4146808227747396, "top5_acc": 0.6704541739230888}}
+[gru_s13] params=3,771,200 (core 691,200) device=mps
+[gru_s13] ep  1  train 4.030  val 3.247  ppl 25.7  top1 0.371  235s
+[gru_s13] ep  2  train 3.316  val 3.093  ppl 22.0  top1 0.388  239s
+[gru_s13] ep  3  train 3.193  val 2.986  ppl 19.8  top1 0.399  240s
+[gru_s13] ep  4  train 3.094  val 2.907  ppl 18.3  top1 0.407  240s
+[gru_s13] ep  5  train 3.000  val 2.840  ppl 17.1  top1 0.415  250s
+[gru_s13] ep  6  train 2.927  val 2.790  ppl 16.3  top1 0.421  250s
+[gru_s13] ep  7  train 2.876  val 2.766  ppl 15.9  top1 0.424  249s
+[gru_s13] ep  8  train 2.855  val 2.760  ppl 15.8  top1 0.425  239s
+[gru_s13] TEST loss 2.773 ppl 16.0 top1 0.424 top5 0.683  train 32.4 min
+{"run": "gru_s13", "test": {"loss": 2.7727206842361087, "perplexity": 16.002111531259114, "top1_acc": 0.42428436601575015, "top5_acc": 0.6828890840887641}}
+skip rnn_s13 (already trained)
+skip birnn_s13 (already trained)
+skip lstm_s13 (already trained)
+skip gru_s13 (already trained)
+[rnn_s42] params=3,310,400 (core 230,400) device=mps
+[rnn_s42] ep  1  train 4.235  val 3.569  ppl 35.5  top1 0.324  103s
+[rnn_s42] ep  2  train 3.671  val 3.460  ppl 31.8  top1 0.335  106s
+[rnn_s42] ep  3  train 3.588  val 3.379  ppl 29.3  top1 0.343  120s
+[rnn_s42] ep  4  train 3.504  val 3.317  ppl 27.6  top1 0.350  120s
+[rnn_s42] ep  5  train 3.422  val 3.247  ppl 25.7  top1 0.357  119s
+[rnn_s42] ep  6  train 3.347  val 3.194  ppl 24.4  top1 0.362  119s
+[rnn_s42] ep  7  train 3.296  val 3.167  ppl 23.7  top1 0.365  120s
+[rnn_s42] ep  8  train 3.272  val 3.160  ppl 23.6  top1 0.366  121s
+[rnn_s42] TEST loss 3.169 ppl 23.8 top1 0.366 top5 0.621  train 15.5 min
+{"run": "rnn_s42", "test": {"loss": 3.169170631815497, "perplexity": 23.787747372095172, "top1_acc": 0.3660222891132961, "top5_acc": 0.6208671088452425}}
+[birnn_s42] params=5,719,872 (core 591,872) device=mps
+[birnn_s42] ep  1  train 4.240  val 3.686  ppl 39.9  top1 0.327  260s
+[birnn_s42] ep  2  train 3.829  val 3.586  ppl 36.1  top1 0.337  262s
+[birnn_s42] ep  3  train 3.757  val 3.512  ppl 33.5  top1 0.342  271s
+[birnn_s42] ep  4  train 3.638  val 3.403  ppl 30.1  top1 0.353  268s
+[birnn_s42] ep  5  train 3.515  val 3.305  ppl 27.2  top1 0.361  265s
+[birnn_s42] ep  6  train 3.396  val 3.223  ppl 25.1  top1 0.368  269s
+[birnn_s42] ep  7  train 3.311  val 3.176  ppl 23.9  top1 0.372  273s
+[birnn_s42] ep  8  train 3.271  val 3.164  ppl 23.7  top1 0.374  274s
+[birnn_s42] TEST loss 3.172 ppl 23.9 top1 0.374 top5 0.624  train 35.7 min
+{"run": "birnn_s42", "test": {"loss": 3.1719998190889496, "perplexity": 23.855142656210123, "top1_acc": 0.3736074753317974, "top5_acc": 0.623992728683556}}
+[lstm_s42] params=4,001,600 (core 921,600) device=mps
+[lstm_s42] ep  1  train 4.265  val 3.396  ppl 29.9  top1 0.351  341s
+[lstm_s42] ep  2  train 3.335  val 3.127  ppl 22.8  top1 0.380  336s
+[lstm_s42] ep  3  train 3.165  val 3.001  ppl 20.1  top1 0.394  300s
+[lstm_s42] ep  4  train 3.058  val 2.928  ppl 18.7  top1 0.402  298s
+[lstm_s42] ep  5  train 2.988  val 2.878  ppl 17.8  top1 0.409  296s
+[lstm_s42] ep  6  train 2.939  val 2.845  ppl 17.2  top1 0.414  298s
+[lstm_s42] ep  7  train 2.911  val 2.832  ppl 17.0  top1 0.416  298s
+[lstm_s42] ep  8  train 2.899  val 2.829  ppl 16.9  top1 0.416  298s
+[lstm_s42] TEST loss 2.839 ppl 17.1 top1 0.415 top5 0.671  train 41.1 min
+{"run": "lstm_s42", "test": {"loss": 2.8393994842945234, "perplexity": 17.10549033664799, "top1_acc": 0.41530856232385693, "top5_acc": 0.6706023902055193}}
+[gru_s42] params=3,771,200 (core 691,200) device=mps
+[gru_s42] ep  1  train 4.031  val 3.239  ppl 25.5  top1 0.372  271s
+[gru_s42] ep  2  train 3.313  val 3.085  ppl 21.9  top1 0.387  272s
+[gru_s42] ep  3  train 3.194  val 2.985  ppl 19.8  top1 0.399  271s
+[gru_s42] ep  4  train 3.089  val 2.905  ppl 18.3  top1 0.408  273s
+[gru_s42] ep  5  train 2.999  val 2.841  ppl 17.1  top1 0.415  268s
+[gru_s42] ep  6  train 2.923  val 2.789  ppl 16.3  top1 0.421  263s
+[gru_s42] ep  7  train 2.875  val 2.765  ppl 15.9  top1 0.425  270s
+[gru_s42] ep  8  train 2.854  val 2.760  ppl 15.8  top1 0.425  278s
+[gru_s42] TEST loss 2.773 ppl 16.0 top1 0.424 top5 0.683  train 36.1 min
+{"run": "gru_s42", "test": {"loss": 2.773073242819684, "perplexity": 16.007754207663343, "top1_acc": 0.42374817181754576, "top5_acc": 0.6827713829233046}}
+[rnn_s2026] params=3,310,400 (core 230,400) device=mps
+[rnn_s2026] ep  1  train 4.231  val 3.566  ppl 35.4  top1 0.322  131s
+[rnn_s2026] ep  2  train 3.671  val 3.449  ppl 31.5  top1 0.336  128s
+[rnn_s2026] ep  3  train 3.584  val 3.391  ppl 29.7  top1 0.342  122s
+[rnn_s2026] ep  4  train 3.505  val 3.325  ppl 27.8  top1 0.348  121s
+[rnn_s2026] ep  5  train 3.421  val 3.248  ppl 25.7  top1 0.355  122s
+[rnn_s2026] ep  6  train 3.345  val 3.194  ppl 24.4  top1 0.362  123s
+[rnn_s2026] ep  7  train 3.296  val 3.166  ppl 23.7  top1 0.365  123s
+[rnn_s2026] ep  8  train 3.268  val 3.159  ppl 23.5  top1 0.365  120s
+[rnn_s2026] TEST loss 3.166 ppl 23.7 top1 0.366 top5 0.622  train 16.5 min
+{"run": "rnn_s2026", "test": {"loss": 3.16562324946762, "perplexity": 23.703512631720777, "top1_acc": 0.36610075655693575, "top5_acc": 0.6218087181689186}}
+[birnn_s2026] params=5,719,872 (core 591,872) device=mps
+[birnn_s2026] ep  1  train 4.241  val 3.696  ppl 40.3  top1 0.324  247s
+[birnn_s2026] ep  2  train 3.834  val 3.581  ppl 35.9  top1 0.336  246s
+[birnn_s2026] ep  3  train 3.740  val 3.502  ppl 33.2  top1 0.344  270s
+[birnn_s2026] ep  4  train 3.640  val 3.406  ppl 30.2  top1 0.351  279s
+[birnn_s2026] ep  5  train 3.521  val 3.313  ppl 27.5  top1 0.359  269s
+[birnn_s2026] ep  6  train 3.406  val 3.231  ppl 25.3  top1 0.367  271s
+[birnn_s2026] ep  7  train 3.325  val 3.184  ppl 24.1  top1 0.371  270s
+[birnn_s2026] ep  8  train 3.280  val 3.174  ppl 23.9  top1 0.372  271s
+[birnn_s2026] TEST loss 3.179 ppl 24.0 top1 0.372 top5 0.622  train 35.4 min
+{"run": "birnn_s2026", "test": {"loss": 3.17942071409733, "perplexity": 24.032827640658315, "top1_acc": 0.3723519962335627, "top5_acc": 0.6224037629498528}}
+[lstm_s2026] params=4,001,600 (core 921,600) device=mps
+[lstm_s2026] ep  1  train 4.261  val 3.405  ppl 30.1  top1 0.347  280s
+[lstm_s2026] ep  2  train 3.339  val 3.129  ppl 22.8  top1 0.379  285s
+[lstm_s2026] ep  3  train 3.163  val 3.007  ppl 20.2  top1 0.392  310s
+[lstm_s2026] ep  4  train 3.063  val 2.937  ppl 18.9  top1 0.401  290s
+[lstm_s2026] ep  5  train 2.992  val 2.882  ppl 17.9  top1 0.408  275s
+[lstm_s2026] ep  6  train 2.943  val 2.851  ppl 17.3  top1 0.412  263s
+[lstm_s2026] ep  7  train 2.917  val 2.837  ppl 17.1  top1 0.414  277s
+[lstm_s2026] ep  8  train 2.902  val 2.834  ppl 17.0  top1 0.415  275s
+[lstm_s2026] TEST loss 2.845 ppl 17.2 top1 0.414 top5 0.670  train 37.6 min
+{"run": "lstm_s2026", "test": {"loss": 2.8445935931332267, "perplexity": 17.194569257731736, "top1_acc": 0.4135953564710575, "top5_acc": 0.6697283500694219}}
+[gru_s2026] params=3,771,200 (core 691,200) device=mps
+[gru_s2026] ep  1  train 4.028  val 3.246  ppl 25.7  top1 0.372  252s
+[gru_s2026] ep  2  train 3.317  val 3.084  ppl 21.8  top1 0.388  250s
+[gru_s2026] ep  3  train 3.193  val 2.987  ppl 19.8  top1 0.399  251s
+[gru_s2026] ep  4  train 3.090  val 2.908  ppl 18.3  top1 0.407  253s
+[gru_s2026] ep  5  train 2.998  val 2.837  ppl 17.1  top1 0.416  245s
+[gru_s2026] ep  6  train 2.921  val 2.787  ppl 16.2  top1 0.422  253s
+[gru_s2026] ep  7  train 2.875  val 2.762  ppl 15.8  top1 0.425  257s
+[gru_s2026] ep  8  train 2.849  val 2.757  ppl 15.7  top1 0.425  247s
+[gru_s2026] TEST loss 2.767 ppl 15.9 top1 0.424 top5 0.684  train 33.5 min
+{"run": "gru_s2026", "test": {"loss": 2.7665631695616066, "perplexity": 15.903881032917024, "top1_acc": 0.42441950439090737, "top5_acc": 0.6836367044545532}}
+[matched_rnn_s13] params=3,981,696 (core 357,696) device=mps
+[matched_rnn_s13] ep  1  train 4.212  val 3.585  ppl 36.1  top1 0.327  159s
+[matched_rnn_s13] ep  2  train 3.698  val 3.496  ppl 33.0  top1 0.340  157s
+[matched_rnn_s13] ep  3  train 3.618  val 3.410  ppl 30.3  top1 0.348  156s
+[matched_rnn_s13] ep  4  train 3.537  val 3.333  ppl 28.0  top1 0.356  155s
+[matched_rnn_s13] ep  5  train 3.439  val 3.262  ppl 26.1  top1 0.363  155s
+[matched_rnn_s13] ep  6  train 3.352  val 3.194  ppl 24.4  top1 0.370  154s
+[matched_rnn_s13] ep  7  train 3.284  val 3.158  ppl 23.5  top1 0.373  156s
+[matched_rnn_s13] ep  8  train 3.256  val 3.150  ppl 23.3  top1 0.374  157s
+[matched_rnn_s13] TEST loss 3.158 ppl 23.5 top1 0.374 top5 0.624  train 20.8 min
+{"run": "matched_rnn_s13", "test": {"loss": 3.1575375608395144, "perplexity": 23.512626173406783, "top1_acc": 0.3737992846384722, "top5_acc": 0.6244787909038796}}
+[matched_birnn_s13] params=3,990,144 (core 270,144) device=mps
+[matched_birnn_s13] ep  1  train 4.261  val 3.606  ppl 36.8  top1 0.328  171s
+[matched_birnn_s13] ep  2  train 3.728  val 3.513  ppl 33.5  top1 0.339  173s
+[matched_birnn_s13] ep  3  train 3.632  val 3.416  ppl 30.5  top1 0.347  173s
+[matched_birnn_s13] ep  4  train 3.545  val 3.329  ppl 27.9  top1 0.356  173s
+[matched_birnn_s13] ep  5  train 3.445  val 3.260  ppl 26.0  top1 0.362  156s
+[matched_birnn_s13] ep  6  train 3.363  val 3.193  ppl 24.4  top1 0.370  159s
+[matched_birnn_s13] ep  7  train 3.299  val 3.159  ppl 23.6  top1 0.373  165s
+[matched_birnn_s13] ep  8  train 3.271  val 3.151  ppl 23.4  top1 0.374  164s
+[matched_birnn_s13] TEST loss 3.159 ppl 23.5 top1 0.373 top5 0.624  train 22.2 min
+{"run": "matched_birnn_s13", "test": {"loss": 3.1588014860861966, "perplexity": 23.542363163950952, "top1_acc": 0.3730734607848052, "top5_acc": 0.6239251594959775}}
+[matched_lstm_s13] params=4,001,600 (core 921,600) device=mps
+[matched_lstm_s13] ep  1  train 4.259  val 3.386  ppl 29.6  top1 0.353  270s
+[matched_lstm_s13] ep  2  train 3.331  val 3.125  ppl 22.8  top1 0.379  270s
+[matched_lstm_s13] ep  3  train 3.156  val 3.001  ppl 20.1  top1 0.394  270s
+[matched_lstm_s13] ep  4  train 3.061  val 2.931  ppl 18.8  top1 0.402  333s
+[matched_lstm_s13] ep  5  train 2.991  val 2.882  ppl 17.9  top1 0.408  422s
+[matched_lstm_s13] ep  6  train 2.945  val 2.850  ppl 17.3  top1 0.413  422s
+[matched_lstm_s13] ep  7  train 2.914  val 2.837  ppl 17.1  top1 0.415  448s
+[matched_lstm_s13] ep  8  train 2.902  val 2.834  ppl 17.0  top1 0.415  434s
+[matched_lstm_s13] TEST loss 2.844 ppl 17.2 top1 0.415 top5 0.670  train 47.8 min
+{"run": "matched_lstm_s13", "test": {"loss": 2.8442824479226836, "perplexity": 17.189220082088188, "top1_acc": 0.41469390068201284, "top5_acc": 0.6699920878660997}}
+[matched_gru_s13] params=3,981,568 (core 773,568) device=mps
+[matched_gru_s13] ep  1  train 4.031  val 3.250  ppl 25.8  top1 0.371  429s
+[matched_gru_s13] ep  2  train 3.322  val 3.100  ppl 22.2  top1 0.388  429s
+[matched_gru_s13] ep  3  train 3.198  val 2.993  ppl 19.9  top1 0.398  429s
+[matched_gru_s13] ep  4  train 3.096  val 2.906  ppl 18.3  top1 0.408  429s
+[matched_gru_s13] ep  5  train 2.998  val 2.837  ppl 17.1  top1 0.416  428s
+[matched_gru_s13] ep  6  train 2.920  val 2.784  ppl 16.2  top1 0.422  429s
+[matched_gru_s13] ep  7  train 2.866  val 2.759  ppl 15.8  top1 0.426  429s
+[matched_gru_s13] ep  8  train 2.843  val 2.753  ppl 15.7  top1 0.426  429s
+[matched_gru_s13] TEST loss 2.764 ppl 15.9 top1 0.425 top5 0.685  train 57.2 min
+{"run": "matched_gru_s13", "test": {"loss": 2.7638887375242214, "perplexity": 15.86140401023736, "top1_acc": 0.4253436765048857, "top5_acc": 0.6845804934294414}}
+[tfm_s13] params=3,336,128 (core 1,779,456) device=mps
+[tfm_s13] ep  1  train 6.457  val 3.383  ppl 29.5  top1 0.360  1041s
+[tfm_s13] ep  2  train 3.248  val 3.047  ppl 21.0  top1 0.396  1039s
+[tfm_s13] ep  3  train 2.991  val 2.863  ppl 17.5  top1 0.413  1040s
+[tfm_s13] ep  4  train 2.832  val 2.729  ppl 15.3  top1 0.430  1039s
+[tfm_s13] ep  5  train 2.713  val 2.635  ppl 13.9  top1 0.442  1047s
+[tfm_s13] ep  6  train 2.628  val 2.571  ppl 13.1  top1 0.452  1067s
+[tfm_s13] ep  7  train 2.570  val 2.542  ppl 12.7  top1 0.456  1072s
+[tfm_s13] ep  8  train 2.547  val 2.533  ppl 12.6  top1 0.457  1076s
+[tfm_s13] TEST loss 2.541 ppl 12.7 top1 0.458 top5 0.721  train 140.4 min
+{"run": "tfm_s13", "test": {"loss": 2.541299758712611, "perplexity": 12.696162198638115, "top1_acc": 0.4575175080483621, "top5_acc": 0.7214383954279636}}
